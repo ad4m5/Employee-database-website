@@ -1,5 +1,6 @@
 <?php
 require_once 'connectdb.php';
+require_once 'jargon.php';
 
 $message = "";
 // checks if register has been pressed and gets details
@@ -30,20 +31,24 @@ if(isset($_POST['register'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Register</title>
+    <title><?php echo e(jargonify('Register')); ?></title>
     <link rel="stylesheet" href="CSS/style.css">
 </head>
-<body>
-<h2>Register</h2>
-<?php if($message != "") { echo "<p>" . e($message) . "</p>"; } ?>
+<body class="<?php echo jargon_on() ? 'jargon' : ''; ?>">
+<?php if(jargon_on()) { ?>
+<div class="jargon-banner">Synergy mode active: all talent has been aligned to core competencies.</div>
+<?php } ?>
+<h2><?php echo e(jargonify('Register')); ?></h2>
+<?php if($message != "") { echo "<p>" . e(jargonify($message)) . "</p>"; } ?>
 <!-- Form for registration window/page -->
 <form method="POST">
     <input type="text" name="name" placeholder="Name" required><br>
-    <input type="email" name="email" placeholder="Email" required><br>
-    <input type="password" name="password" placeholder="Password" required><br>
-    <button name="register">Register</button>
+    <input type="email" name="email" placeholder="<?php echo e(jargonify('Email')); ?>" required><br>
+    <input type="password" name="password" placeholder="<?php echo e(jargonify('Password')); ?>" required><br>
+    <button name="register"><?php echo e(jargonify('Register')); ?></button>
 </form>
 
-<a href="index.php">Back</a>
+<a href="index.php"><?php echo e(jargonify('Back')); ?></a>
+<a href="<?php echo e(jargon_toggle_url()); ?>" class="jargon-toggle"><?php echo e(jargon_label()); ?></a>
 </body>
 </html>

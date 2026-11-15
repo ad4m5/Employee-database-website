@@ -4,3 +4,30 @@ p{font: 1em sans-serif;}
 body{font-family: sans-serif; margin: 0;}
 a {padding: 12px; margin-right: 12px; text-decoration: none; font-weight: bold;}
 a:hover {text-decoration: underline;}
+
+/* Corporate Jargon Mode */
+.jargon-banner {
+    background: #1f2933;
+    color: #f8fafc;
+    font-family: sans-serif;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 16px;
+}
+a.jargon-toggle {
+    display: inline-block;
+    border: 1px solid #1f2933;
+    border-radius: 999px;
+    font-size: 0.75em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+body.jargon { background-color: #eef1f5; }
+body.jargon h1,
+body.jargon h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+body.jargon p { font-family: Georgia, 'Times New Roman', serif; }
